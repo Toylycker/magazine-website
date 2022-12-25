@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             MagazineSeeder::class,
             PartnerSeeder::class,
         ]);
-        \App\Models\Blog::factory()->count(30)->create();
+        \App\Models\Blog::factory()->count(50)->create();
         // \App\Models\Category::factory()->count(15)->create();
         // \App\Models\Partner::factory()->count(100)->create();
 

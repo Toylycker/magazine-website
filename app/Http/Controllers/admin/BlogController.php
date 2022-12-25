@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Subject;
 use App\Models\Image;
 use App\Models\Link;
+use Illuminate\Support\Facades\Cookie;
 use Intervention\Image\ImageManagerStatic as Gallery;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;

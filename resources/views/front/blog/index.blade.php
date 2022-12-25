@@ -391,14 +391,6 @@
     });
 </script>
 <style>
-    /*
-
-TemplateMo 552 Video Catalog
-
-https://templatemo.com/tm-552-video-catalog
-
-*/
-
     h2,
     p {
         color: #666666;
@@ -488,13 +480,6 @@ https://templatemo.com/tm-552-video-catalog
     .tm-welcome-text {
         font-size: 1.6rem;
     }
-
-    /* .btn {
-        padding: 15px 60px;
-        font-size: 1.6rem;
-        border: none;
-        cursor: pointer;
-    } */
 
     .btn-primary {
         background-color: #3399CC;
