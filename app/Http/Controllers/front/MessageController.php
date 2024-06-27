@@ -10,23 +10,7 @@ class MessageController extends Controller
 {
     public function index(Request $request)
     {
-        $request->validate([
-            'id' => 'nullable|integer|min:1',
-            ]);
-        $f_id = $request->id ?: null;
-
-        $messages = Message::when($f_id, function ($query, $f_id) {
-            return $query->where('id', 'like', '%' . $f_id . '%');
-        })
-            ->orderBy('id')
-            ->orderBy('name')
-            ->paginate(20)
-            ->withQueryString();
-
-        return view('front.home.contact', [
-            'f_id' => $f_id,
-            'messages' => $messages,
-        ]);
+        return view('front.home.contact');
     }
 
     public function store (Request $request){
@@ -51,16 +35,4 @@ class MessageController extends Controller
             ]);
     }
     
-    public function delete($id)
-    {
-        $message = Message::where('id', $id)
-            ->firstOrFail();
-        $success = trans('app.delete-response', ['name' => $message->name]);
-        $message->delete();
-
-        return redirect()->route('front.messages.index')
-            ->with([
-                'success' => $success,
-            ]);
-    }
 }
