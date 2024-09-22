@@ -26,9 +26,6 @@ class WorkerSeeder extends Seeder
             ['3.jpg', 'Ramiliýa Ramazanowa', 'Рамиля Рамазанова', 'Baş direktoryň guramaçylyk işleri boýunça orunbasary Telekeçi Bloger-stilist Dört dilde gürleýär', 'Заместитель по организационным вопросам гендиректора Предприниматель Блогер Визажист-стилист Владеет четырьмя языками', [
                 'instagrams' => ['ramazanova.ramilya']
             ]],
-            // ['4.jpg', 'Aýnulýa', 'Айнуля', 'PR-menejer "AkEnMar" Gözellik blogeri “Aýnulýa gözelligi” salonyny esaslandyryjy KhNEU-nyň uçurymy Semýon Kuznets', 'PR-менеджер “AkEnMar” Бьюти-блогер Основатель салона “Aynulya beauty” Выпускник ХНЭУ имени Семёна Кузнеца', [
-            //     'instagrams' => ['aynulya2707']
-            // ]],
             ['5.jpg', 'Nazirita Habibowna', 'Назирита Хабибова', ' “AkEnMar"piar agentliginiň PR-menejeri bloger bäş çaganyň enesi.', 'PR-менеджер пиар компании “AkEnMar” Блогер Мать пятерых детей', [
                 'instagrams' => ['nazirita_habibova']
             ]],

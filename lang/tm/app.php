@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'app-name' => 'AkEnMar',
+    'app-name' => 'Marketolog',
     'app-description' => 'Iň ýokary derejeli PR agentligi',
 
     'about-us' => 'Biz barada',

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             SubjectSeeder::class,
             UserSeeder::class,
-            WorkerSeeder::class,
+            // WorkerSeeder::class,
             MagazineSeeder::class,
             PartnerSeeder::class,
         ]);
