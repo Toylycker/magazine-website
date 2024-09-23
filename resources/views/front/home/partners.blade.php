@@ -6,10 +6,19 @@
 <div class="container-fluid">
     <div class="container">
         <div class="row">
+            <div class="text-center">
+                @foreach ($types as $type)
+                <button type="button" class="btn btn-success w-25 type-btn {{ $chosen_type == $type->name ? 'active' : '' }}" data-value="{{ $type->name }}">
+                        {{ $type->name }}
+                    </button>
+                @endforeach
+            </div>
             <div class="col-lg-12 card-margin">
                 <div class="card search-form">
                     <div class="card-body p-0">
                         <form id="search-form" action="{{ route('partners') }}" method="get">
+                            <!-- Hidden input to store the selected type -->
+                        <input type="hidden" name="chosen_type" id="chosen_type" value="{{ $chosen_type }}">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="row no-gutters">
@@ -236,19 +245,19 @@
                                                 </div>
 
                                                 {{-- links  map--}}
-                                            <div class="links_container" name="links[]">
-                                                <label for="map" class="form-label fw-bold">
-                                                    @lang('app.map')
-                                                </label>
-                                                <div class="btn btn-success my-3" id="add_map">+</div>
-                                                <div class="mb-3 maps">
-                                                    <input class="form-control @error('maps') is-invalid @enderror" name="links[maps][]" id="map" rows="3" maxlength="50">
-                                                    @error('maps')
-                                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
+                                                <div class="links_container" name="links[]">
+                                                    <label for="map" class="form-label fw-bold">
+                                                        @lang('app.map')
+                                                    </label>
+                                                    <div class="btn btn-success my-3" id="add_map">+</div>
+                                                    <div class="mb-3 maps">
+                                                        <input class="form-control @error('maps') is-invalid @enderror" name="links[maps][]" id="map" rows="3" maxlength="50">
+                                                        @error('maps')
+                                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
 
-                                            </div>
+                                                </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
@@ -278,6 +287,16 @@
 </div>
 
 <style>
+    .type-btn {
+        margin: 5px;
+        background-color: #28a745;
+    }
+
+    .type-btn.active {
+        background-color: #155724;
+        color: #fff;
+    }
+
     .bg-holder {
         position: relative;
         width: 100%;
@@ -431,38 +450,50 @@
 </style>
 
 <script>
-    $(document).ready(function () {
-        $("#add_phone").click(function (e) { 
+    $(document).ready(function() {
+            // Type button selection
+        $('.type-btn').on('click', function() {
+            // Remove 'active' class from all buttons
+            $('.type-btn').removeClass('active');
+            
+            // Add 'active' class to the clicked button
+            $(this).addClass('active');
+            
+            // Set the hidden input value to the chosen type
+            $('#chosen_type').val($(this).data('value'));
+        });
+
+        $("#add_phone").click(function(e) {
             e.preventDefault();
             $('<input class="form-control my-3" name="links[phones][]" rows="3" maxlength="50">').appendTo(".phones");
         });
 
-        $("#add_instagram").click(function (e) { 
+        $("#add_instagram").click(function(e) {
             e.preventDefault();
             $('<input class="form-control my-3" name="links[instagrams][]" rows="3" maxlength="50">').appendTo(".instagrams");
         });
 
-        $("#add_mail").click(function (e) { 
+        $("#add_mail").click(function(e) {
             e.preventDefault();
             $('<input class="form-control my-3" name="links[mails][]" rows="3" maxlength="50">').appendTo(".mails");
         });
 
-        $("#add_imo").click(function (e) { 
+        $("#add_imo").click(function(e) {
             e.preventDefault();
             $('<input class="form-control my-3" name="links[imos][]" rows="3" maxlength="50">').appendTo(".imos");
         });
 
-        $("#add_website").click(function (e) { 
+        $("#add_website").click(function(e) {
             e.preventDefault();
             $('<input class="form-control my-3" name="links[websites][]" rows="3" maxlength="50">').appendTo(".websites");
         });
 
-        $("#add_map").click(function (e) { 
+        $("#add_map").click(function(e) {
             e.preventDefault();
             $('<input class="form-control my-3" name="links[maps][]" rows="3" maxlength="50">').appendTo(".maps");
         });
 
-        $("#add_tiktok").click(function (e) { 
+        $("#add_tiktok").click(function(e) {
             e.preventDefault();
             $('<input class="form-control my-3" name="links[tiktoks][]" rows="3" maxlength="50">').appendTo(".tiktoks");
         });

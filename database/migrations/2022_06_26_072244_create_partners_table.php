@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('type_id')->index()->nullable();
+            $table->foreign('type_id')->references('id')->on('types')->nullOnDelete();
             $table->unsignedBigInteger('category_id')->index()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
             $table->string('name');

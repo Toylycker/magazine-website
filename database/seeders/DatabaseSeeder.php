@@ -16,13 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CategorySeeder::class,
-            SubjectSeeder::class,
+            // SubjectSeeder::class,
             UserSeeder::class,
             // WorkerSeeder::class,
-            MagazineSeeder::class,
+            // MagazineSeeder::class,
+            TypeSeeder::class,
             PartnerSeeder::class,
         ]);
-        \App\Models\Blog::factory()->count(50)->create();
+        // \App\Models\Blog::factory()->count(50)->create();
         // \App\Models\Category::factory()->count(15)->create();
         // \App\Models\Partner::factory()->count(100)->create();
 

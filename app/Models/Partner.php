@@ -24,6 +24,11 @@ class Partner extends Model
         return $this->belongsTo(Blog::class);
     }
 
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
 
     public function links(){
         

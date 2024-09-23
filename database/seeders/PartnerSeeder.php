@@ -8,6 +8,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Link;
 use App\Models\Partner;
+use App\Models\Type;
 
 class PartnerSeeder extends Seeder
 {
@@ -1071,6 +1072,7 @@ class PartnerSeeder extends Seeder
         foreach ($partners as $partner) {
             $newPartner = new Partner();
             $newPartner->category_id = $partner["categories"];
+            $newPartner->type_id = Type::inRandomOrder()->first()->id;
             $newPartner->sort_order = $partner["level"];
             $new_arr = array();
             if (isset($partner['name_tm'])) {

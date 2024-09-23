@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\App;
 use App\Models\Subject;
 use App\Models\Category;
 use App\Models\Subscription;
+use App\Models\Type;
 use Illuminate\Support\Facades\Cookie;
 
 class HomeController extends Controller
@@ -41,12 +42,15 @@ class HomeController extends Controller
         $request->validate(
             [
                 'c' => 'nullable|integer',
-                'search' => 'nullable|string|max:30'
+                'search' => 'nullable|string|max:30',
+                'chosen_type'=>'nullable|string|max:30',
             ]
         );
 
         $f_category = $request->has('c') ? $request->c : 0;
+        $types = Type::get();
         $search = $request->search ?: null;
+        $chosen_type = $request->chosen_type ?Type::where('name', $request->chosen_type)->first()->name: null;
         $categories = Category::orderBy('name')->get();
         $partners =  Partner::when($search, function ($query, $search) {
             return $query->where('name', 'like', '%' . $search . '%');
@@ -58,13 +62,17 @@ class HomeController extends Controller
         })
         ->when($f_category, function ($query, $f_category) {
             return $query->where('category_id', $f_category);
+        })->when($chosen_type, function ($query, $chosen_type) {
+            return $query->whereHas('type', function ($q) use ($chosen_type) {
+                $q->where('name', $chosen_type);
+            });
         })
         ->orderBy('sort_order')
         ->with('images', 'links')
         ->paginate(10)->withQueryString();
         // $f_category = collect($f_category);
 
-        return view('front.home.partners', compact(['partners', 'f_category', 'categories', 'search']));
+        return view('front.home.partners', compact(['partners', 'f_category', 'categories', 'search', 'types', 'chosen_type']));
     }
 
 

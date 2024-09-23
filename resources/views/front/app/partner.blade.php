@@ -44,16 +44,16 @@
                             @endif
                         @endforeach
 
-                        {{-- subscribe start --}}
+                        <!-- {{-- subscribe start --}} -->
                         <!-- Button trigger modal -->
-                        <button type="button" class="mt-3 btn btn-small btn-success"
+                        <!-- <button type="button" class="mt-3 btn btn-small btn-success"
                              data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop{{ $partner->id }}">
                             @lang('app.subscribe')
-                        </button>
+                        </button> -->
 
                         <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop{{ $partner->id }}" data-bs-backdrop="false"
+                        <!-- <div class="modal fade" id="staticBackdrop{{ $partner->id }}" data-bs-backdrop="false"
                             data-bs-keyboard="false" tabindex="9999999999999" aria-labelledby="staticBackdropLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
@@ -89,10 +89,10 @@
                                     </div> --}}
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
-                        {{-- subscribe end --}}
+                        <!-- {{-- subscribe end --}} -->
                     </div>
                 </div>
             </div>
@@ -247,14 +247,14 @@
 
                         {{-- subscribe start --}}
                         <!-- Button trigger modal -->
-                        <button type="button" class=" mt-3 btn btn-small btn-success"
+                        <!-- <button type="button" class=" mt-3 btn btn-small btn-success"
                              data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop{{ $partner->id }}">
                             @lang('app.subscribe')
-                        </button>
+                        </button> -->
 
                         <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop{{ $partner->id }}" data-bs-backdrop="false"
+                        <!-- <div class="modal fade" id="staticBackdrop{{ $partner->id }}" data-bs-backdrop="false"
                             data-bs-keyboard="false" tabindex="9999999999999" aria-labelledby="staticBackdropLabel"
                             aria-hidden="true">
                             <div class="modal-dialog ">
@@ -290,7 +290,7 @@
                                     </div> --}}
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         {{-- subscribe end --}}
                     </div>
                 </div>

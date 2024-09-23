@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark py-3 {{ Route::current()->getName() == 'partners' ? '' : 'sticky-top' }}" aria-label="Fifth navbar example">
     <div class="container-xl text-center glow-on-hover">
-        <a class="navbar-brand navbar-brand-dynamic-color fade-page " href="{{ route('home') }}"><img src="{{ asset('img/akenmar-pr-agency.png') }}" width="150" height="40"></a>
         <button class="navbar-toggler bg-dark bg-opacity-50 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -12,18 +11,6 @@
                     <a class="text-white nav-link fw-bold a" href="{{ route('dashboard') }}"> @lang('app.dashboard') </a>
                 </li>
                 @endauth
-                <li class="nav-item">
-                    <a class="text-white nav-link fw-bold a" href="{{ route('home') }}"> @lang('app.home') </a>
-                </li>
-                <li class="nav-item">
-                    <a class="text-white nav-link fw-bold a" href="{{ route('blogs', "0") }}"> @lang('app.blog') </a>
-                </li>
-                <li class="nav-item">
-                    <a class="text-white nav-link fw-bold a" href="{{ route('partners') }}">@lang('app.partners')</a>
-                </li>
-                <li class="nav-item">
-                    <a class="text-white nav-link fw-bold a" href="{{ route('message') }}">@lang('app.contact')</a>
-                </li>
             </ul>
             <form action="#">
                 <div class="mx-lg-3 mx-0 p-lg-0 pb-3 d-flex justify-content-lg-start justify-content-evenly">
