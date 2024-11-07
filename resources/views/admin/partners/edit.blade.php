@@ -30,13 +30,30 @@
             </div>
 
             <div class="mb-3">
+                <label for="type_id" class="form-label fw-bold">
+                    @lang('app.type') <span class="text-danger">*</span>
+                </label>
+                <select class="form-select @error('type_id') is-invalid @enderror" id="type_id" name="type_id"
+                    required>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" {{$partner->type_id==$type->id?'selected':''}}>
+                            {{ $type->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('type_id')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
                 <label for="category_id" class="form-label fw-bold">
                     @lang('app.category') <span class="text-danger">*</span>
                 </label>
                 <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id"
                     required>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}" {{$partner->category->id==$category->id?'selected':''}}>
+                        <option value="{{ $category->id }}" {{$partner->category_id==$category->id?'selected':''}}>
                             {{ $category->name }}
                         </option>
                     @endforeach

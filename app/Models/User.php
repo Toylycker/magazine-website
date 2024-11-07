@@ -24,4 +24,8 @@ class User extends Authenticatable
     ];
 
     public $timestamps = false;
+
+    public function partners(){
+        return $this->hasMany(Partner::class);
+    }
 }

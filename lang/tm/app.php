@@ -68,6 +68,7 @@ return [
     'website' => 'Web saýt',
     'map' => 'Kartada ýerleşýän ýeri',
    'success' => 'Üstünlikli',
+   'type' => 'Platformanyň görnüşi',
 
     'we_are_best' => 'Biz öz işimiziň ussady',
    'you_can_conquer_the_world' => 'Biz bilen meşhurlyga eýe bol',

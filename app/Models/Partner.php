@@ -17,11 +17,17 @@ class Partner extends Model
         'description_ru',
         'address',
         'sort_order',
-        'category_id'
+        'category_id',
+        'type_id',
+        'user_id',
     ];
 
     public function category(){
         return $this->belongsTo(Blog::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     public function type()

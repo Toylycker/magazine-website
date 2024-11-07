@@ -8,6 +8,7 @@ use App\Models\Image;
 use App\Models\Link;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Gallery;
@@ -172,8 +173,9 @@ class PartnerController extends Controller
     {
         $partner = Partner::where('id', $id)->firstOrFail();
         $categories = Category::get();
+        $types = Type::get();
 
-        return view('admin.partners.edit', compact(['partner', 'categories']));
+        return view('admin.partners.edit', compact(['partner', 'categories', 'types']));
     }
 
     /**
@@ -187,6 +189,7 @@ class PartnerController extends Controller
     {
         $request->validate([
             'category_id' => 'required|integer',
+            'type_id' => 'required|integer',
             'name' => 'required',
             'name_ru' => 'required',
             'description' => 'required',

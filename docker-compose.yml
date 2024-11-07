@@ -3,7 +3,9 @@ version: '3.8'
 services:
   # Laravel Application (PHP-FPM)
   app:
-    image: php:8.1-fpm
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: target_app
     restart: unless-stopped
     working_dir: /var/www/html
@@ -15,14 +17,7 @@ services:
       DB_HOST: db
       DB_PORT: 3306
     command: >
-      bash -c "apt-get update && \
-      apt-get install -y git unzip zip libzip-dev libonig-dev libxml2-dev && \
-      docker-php-ext-install pdo_mysql mbstring zip exif pcntl bcmath opcache && \
-      curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-      composer install && \
-      php artisan key:generate && \
-      php artisan migrate && \
-      php-fpm"
+      bash -c "php artisan key:generate && php artisan migrate && php-fpm"
 
   # Nginx Web Server
   webserver:
