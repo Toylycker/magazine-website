@@ -15,15 +15,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $users = [['admin', '1', '865000000', 'admin123', 'admin@gmail.com'],
-                 ['user', '0', '865234567', 'user123', 'user@gmail.com']];
+        $users = [['admin', 'admin', '865000000', 'admin123', 'admin@gmail.com'],
+                 ['user', null, '865234567', 'user123', 'user@gmail.com']];
 
 
         foreach($users as $user){
             $obj = new User();
             $obj->username = $user[0];
             $obj->password = bcrypt($user[3]);
-            $obj->boss = $user[1];
+            $obj->role = $user[1];
             $obj->save();
         }
     }

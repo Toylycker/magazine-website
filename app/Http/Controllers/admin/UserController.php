@@ -16,7 +16,7 @@ class UserController extends Controller
         ]);
         $search = $request->username?$request->username:null;
 
-        $users = User::where('boss', 0)->when($search, function ($query) use ($search){
+        $users = User::where('role', null)->when($search, function ($query) use ($search){
             $query->where('username', 'like', '%'.$search.'%');
         })->get();
 
@@ -40,7 +40,7 @@ class UserController extends Controller
         $user = User::create([
             'username' => $request->username,
             'password' => Hash::make($request->password),
-            'boss' => 0
+            'role' => null
         ]);
 
         // event(new Registered($user));

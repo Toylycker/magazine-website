@@ -30,7 +30,7 @@ Route::middleware('auth')
         Route::get('/admin/contact/messages', [MessageController::class, 'index'])->name('admin.contact.messages');
         Route::get('/admin/partners/subscriptions', [SubscriptionController::class, 'index'])->name('admin.partners.subscriptions');
         Route::get('/admin/workers', [WorkerController::class, 'index'])->name('admin.workers');
-        Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users')->middleware('boss');
+        Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users')->middleware('admin');
 
         Route::delete('/admin/messages/delete/{id}', [MessageController::class, 'destroy'])->name('admin.messages.delete');
         Route::delete('/admin/subscriptions/delete/{id}', [subscriptionController::class, 'destroy'])->name('admin.subscription.delete');
@@ -39,12 +39,12 @@ Route::middleware('auth')
         Route::delete('/admin/blogs/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('admin.blogs.category.delete');
         Route::delete('/admin/blogs/delete/{slug}', [BlogController::class, 'destroy'])->name('admin.blogs.delete');
 
-        Route::delete('/admin/users/delete/{id}', [UserController::class, 'destroy'])->name('admin.users.delete')->middleware('boss');
-        Route::post('/admin/users/create', [UserController::class, 'store'])->name('admin.users.create')->middleware('boss');
+        Route::delete('/admin/users/delete/{id}', [UserController::class, 'destroy'])->name('admin.users.delete')->middleware('admin');
+        Route::post('/admin/users/create', [UserController::class, 'store'])->name('admin.users.create')->middleware('admin');
 
-        Route::post('/admin/worker/store', [workerController::class, 'store'])->name('admin.worker.store');
-        Route::post('/admin/blogs/subject/store', [SubjectController::class, 'store'])->name('admin.blogs.subject.store');
-        Route::post('/admin/blogs/category/store', [CategoryController::class, 'store'])->name('admin.blogs.category.store');
+        Route::post('/admin/worker/store', [workerController::class, 'store'])->name('admin.worker.store')->middleware('admin');
+        Route::post('/admin/blogs/subject/store', [SubjectController::class, 'store'])->name('admin.blogs.subject.store')->middleware('admin');
+        Route::post('/admin/blogs/category/store', [CategoryController::class, 'store'])->name('admin.blogs.category.store')->middleware('admin');
         
 
         Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');

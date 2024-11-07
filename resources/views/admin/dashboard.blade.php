@@ -15,7 +15,7 @@
         <div class="col-6 d-flex justify-content-center align-items-center h3 my-3 border rounded-3 bg-warning" style="height: 100px;">
             <a class="text-white text-decoration-none" href="{{route('admin.partners.subscriptions')}}">@lang('app.partner_subscriptions')</a>
         </div>
-        @if (Auth::user()->boss == true)
+        @if (Auth::user()->role == 'admin')
         <div class="col-6 d-flex justify-content-center align-items-center h3 my-3 border rounded-3 bg-black" style="height: 100px;">
             <a class="text-white text-decoration-none" href="{{route('admin.users')}}">@lang('app.users')</a>
         </div>

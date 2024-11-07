@@ -17,7 +17,7 @@ class BossMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->boss){
+        if(Auth::user()->role == 'admin'){
             return $next($request);
         }else{
             return abort(403);
