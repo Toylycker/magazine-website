@@ -1,6 +1,9 @@
 @extends('front.layouts.app')
 @section('title')
 @lang('app.partners')
+@php
+    use App\Enums\TypeNames;
+@endphp
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -94,6 +97,23 @@
                                                 <input class="form-control @error('name_ru') is-invalid @enderror" name="name_ru" id="name_ru" rows="3" maxlength="2550">
                                                 @error('name_ru')
                                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="type_id" class="form-label fw-bold">
+                                                    @lang('app.type') <span class="text-danger">*</span>
+                                                </label>
+                                                <select class="form-select @error('type_id') is-invalid @enderror" id="type_id" name="type_id"
+                                                    required>
+                                                    @foreach ($types as $type)
+                                                        <option value="{{ $type->id }}" {{$type->name==TypeNames::TikTok->value?'selected':''}}>
+                                                            {{ $type->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('type_id')
+                                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
                                                 @enderror
                                             </div>
 

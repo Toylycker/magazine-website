@@ -21,9 +21,3 @@ RUN apt-get update && \
 
 # Copy Composer from the official image
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-
-# Copy the application files
-COPY . .
-
-# Install PHP dependencies via Composer
-RUN composer install

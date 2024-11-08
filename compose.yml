@@ -16,8 +16,7 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 3306
-    command: >
-      bash -c "php artisan key:generate && php artisan migrate && php-fpm"
+    #manually go to container and add install composer
 
   # Nginx Web Server
   webserver:

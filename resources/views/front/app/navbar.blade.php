@@ -10,6 +10,9 @@
                 <li class="nav-item">
                     <a class="text-white nav-link fw-bold a" href="{{ route('dashboard') }}"> @lang('app.dashboard') </a>
                 </li>
+                <li class="nav-item">
+                    <a class="text-white nav-link fw-bold a" href="{{ route('partners') }}"> @lang('app.partners') </a>
+                </li>
                 @endauth
             </ul>
             <form action="#">

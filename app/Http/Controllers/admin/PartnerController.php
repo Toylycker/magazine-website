@@ -33,11 +33,13 @@ class PartnerController extends Controller
             'description' => 'required',
             'description_ru' => 'required',
             'sort_order' => 'required',
+            'type_id' => 'required|numeric',
             'images' => 'required|array',
             'links' => ''
         ]);
         // return $request;
         $category = Category::findOrFail($request->category_id);
+        $typeId = Type::findOrFail($request->type_id)->id;
         $links = $request->links?$request->links:null;
         
 
@@ -45,6 +47,7 @@ class PartnerController extends Controller
         $partner->category_id = $category->id;
         $partner->name = $request->name;
         $partner->name_ru = $request->name_ru;
+        $partner->type_id = $typeId;
         $partner->description = $request->description;
         $partner->description_ru = $request->description_ru;
         $partner->sort_order = $request->sort_order;
