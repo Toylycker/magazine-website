@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'app-name' => 'Marketolog',
+    'app-name' => 'Target-TM',
     'app-description' => 'Пиар агентство высшего уровня',
 
     'about-us' => 'О нас',
@@ -16,7 +16,7 @@ return [
     'edit' => 'Изменить',
     'delete' => 'Удалить',
     'call' => 'Звонить',
-    'our_partners' => 'Лучший вестник страны',
+    'our_partners' => 'Аккаунты',
     'all_categories' => 'Все',
     'search' => 'Поиск',
     'create_partner' => 'Добавить партнера',

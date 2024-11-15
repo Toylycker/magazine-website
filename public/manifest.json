@@ -1,14 +1,14 @@
 {
-    "name": "Marketolog",
+    "name": "Target-TM",
     "short_name": "AEM",
     "start_url": "/index.php",
     "background_color": "#969892",
-    "description": "Пиар агентство высшего уровня",
+    "description": "",
     "display": "fullscreen",
     "theme_color": "#969892",
     "icons": [
         {
-            "src": "img/akenmar.png",
+            "src": "",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"

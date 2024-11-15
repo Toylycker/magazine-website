@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'app-name' => 'Marketolog',
+    'app-name' => 'Target-TM',
     'app-description' => 'Iň ýokary derejeli PR agentligi',
 
     'about-us' => 'Biz barada',
@@ -17,7 +17,7 @@ return [
     'edit' => 'Üýtgetmek',
     'delete' => 'Pozmak',
     'call' => 'Jaň etmek',
-    'our_partners' => 'Hyzmatdaşlarymyz',
+    'our_partners' => 'Akkauntlar',
     'all_categories' => 'Hemmesi',
     'search' => 'Gözleg',
     'create_partner' => 'Hyzmatdaş goşmak',

@@ -11,7 +11,7 @@
         <div class="row">
             <div class="text-center">
                 @foreach ($types as $type)
-                <button type="button" class="btn btn-success w-25 type-btn {{ $chosen_type == $type->name ? 'active' : '' }}" data-value="{{ $type->name }}">
+                <button type="button" class="btn btn-success w-50 type-btn {{ $chosen_type == $type->name ? 'active' : '' }}" data-value="{{ $type->name }}">
                         {{ $type->name }}
                     </button>
                 @endforeach
@@ -32,7 +32,7 @@
                                                 </option>
                                                 @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}" {{ $category->id == $f_category ? 'selected' : '' }}>
-                                                    {{ $category->name }}
+                                                    {{ $category->name() }}
                                                 </option>
                                                 @endforeach
                                             </select>
@@ -313,8 +313,10 @@
     }
 
     .type-btn.active {
-        background-color: #155724;
+        background-color: black;
         color: #fff;
+        transform: scale(1.1); /* Slightly increase size */
+        transition: transform 0.2s ease-in-out; /* Smooth transition */
     }
 
     .bg-holder {
